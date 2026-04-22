@@ -95,21 +95,22 @@ public class WarehouseManager {
 
 		System.out.print("データ型を選んでください（1...文字、2...文字列、3...数値）＞");
 
-
 		//ここに入力処理を記述する。
-
+		String str = br.readLine();
+		int array = Integer.parseInt(str);
 
 		System.out.print("\n要素数を選んでください（1...1個、2...2個、3...3個）＞");
 
-
 		//ここに入力処理を記述する。
-
+		str = br.readLine();
+		int length = Integer.parseInt(str);
 
 		boolean errFlag = false;
 
-
 		//ここに入力値の範囲チェック処理を記述する。
-
+		if ((array != 1 && array != 2 && array != 3) || (length != 1 && length != 2 && length != 3)) {
+			errFlag = true;
+		}
 
 		if (!errFlag) {
 			System.out.println("\nZ先輩：");
@@ -126,10 +127,51 @@ public class WarehouseManager {
 			String[] strArray = null;
 			int[] intArray = null;
 
-
 			//ここに入力値による分岐および配列要素数の確定、
 			//値の代入処理を記述する。
-
+			if (array == 1) {
+				if (length == 1) {
+					charArray = new char[1];
+					charArray[0] = 's';
+				} else if (length == 2) {
+					charArray = new char[2];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+				} else {
+					charArray = new char[3];
+					charArray[0] = 'a';
+					charArray[1] = 'b';
+					charArray[2] = 'c';
+				}
+			} else if (array == 2) {
+				if (length == 1) {
+					strArray = new String[1];
+					strArray[0] = "ab";
+				} else if (length == 2) {
+					strArray = new String[2];
+					strArray[0] = "ab";
+					strArray[1] = "bc";
+				} else {
+					strArray = new String[3];
+					strArray[0] = "ab";
+					strArray[1] = "bc";
+					strArray[3] = "cd";
+				}
+			} else {
+				if (length == 1) {
+					intArray = new int[1];
+					intArray[0] = 0;
+				} else if (length == 2) {
+					intArray = new int[2];
+					intArray[0] = 0;
+					intArray[1] = 1;
+				} else {
+					intArray = new int[3];
+					intArray[0] = 0;
+					intArray[1] = 1;
+					intArray[2] = 2;
+				}
+			}
 
 			System.out.println("Yさん：");
 			System.out.println("...出来ました。\n");
@@ -139,9 +181,14 @@ public class WarehouseManager {
 
 			System.out.println("Yさん：");
 
-
 			//ここに入力値による分岐および配列要素の表示処理を記述する。
-
+			if (array == 1) {
+				System.out.println(charArray[length - 1]);
+			} else if (array == 2) {
+				System.out.println(strArray[length - 1]);
+			} else {
+				System.out.println(intArray[length - 1]);
+			}
 
 			System.out.println("です。\n");
 
