@@ -66,12 +66,27 @@ public class WarehouseManager {
 
 	public static void main(String[] args) {
 
-
 		//ここに必要な配列の宣言を記述する。
+		int[] MQArrayC = { 0, 0, 0, 0, 0 };
+		int[] MQArrayD = { 0, 0, 0, 0, 0 };
+		int[] MQArrayE = { 0, 0, 0, 0, 0 };
 
+		int[][] MQArrayAll = new int[3][5];
+		MQArrayAll[0] = MQArrayC;
+		MQArrayAll[1] = MQArrayD;
+		MQArrayAll[2] = MQArrayE;
 
 		//ここに配列に値を代入する処理を記述する。(要素はランダム)
 
+		for (int i = 0; i < MQArrayAll.length; i++) {
+			for (int j = 0; j < MQArrayAll[0].length; j++) {
+				int num = (int) (Math.random() * 10 + 1);
+				double rand = Math.random();
+				if (rand < 0.75) {
+					MQArrayAll[i][j] = num;
+				}
+			}
+		}
 
 		System.out.println("E主任：");
 		System.out.println("MQ運送の件、お願いします。\n");
@@ -81,48 +96,100 @@ public class WarehouseManager {
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayC.length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayC[i]);
+			} else {
+				System.out.print(MQArrayC[i] + ",");
+			}
+		}
 
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayD.length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayD[i]);
+			} else {
+				System.out.print(MQArrayD[i] + ",");
+			}
+		}
 
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayE.length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayE[i]);
+			} else {
+				System.out.print(MQArrayE[i] + ",");
+			}
+		}
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに詰め替え処理を記述する
+		int[] Index1 = { 0, 0, 0, 0, 0 };
+		int[] Index2 = { 0, 0, 0, 0, 0 };
+		int[] Index3 = { 0, 0, 0, 0, 0 };
+		int[][] IndexAll = new int[3][5];
+		IndexAll[0] = Index1;
+		IndexAll[1] = Index2;
+		IndexAll[2] = Index3;
+		int counts1 = 0;
+		int counts2 = 0;
 
+		for (int i = 0; i < MQArrayAll.length; i++) {
+			for (int j = 0; j < MQArrayAll[0].length; j++) {
+				if (MQArrayAll[i][j] != 0) {
+					IndexAll[counts1][counts2] = MQArrayAll[i][j];
+					if (counts2 == 4) {
+						counts1++;
+						counts2 = 0;
+					} else {
+						counts2++;
+					}
+				}
+			}
+		}
+		MQArrayAll = IndexAll;
 
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 
 		System.out.print("C...");
 
-
 		//ここに配列Cの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayAll[0].length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayAll[0][i]);
+			} else {
+				System.out.print(MQArrayAll[0][i] + ",");
+			}
+		}
 
 		System.out.print("\n\nD...");
 
-
 		//ここに配列Dの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayAll[1].length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayAll[1][i]);
+			} else {
+				System.out.print(MQArrayAll[1][i] + ",");
+			}
+		}
 
 		System.out.print("\n\nE...");
 
-
 		//ここに配列Eの要素をすべて出力する処理を記述する。
-
+		for (int i = 0; i < MQArrayAll[2].length; i++) {
+			if (i == 4) {
+				System.out.print(MQArrayAll[2][i]);
+			} else {
+				System.out.print(MQArrayAll[2][i] + ",");
+			}
+		}
 
 		System.out.println("\n\nになりました。\n");
 
